@@ -19,6 +19,15 @@ stages:
     - script: |
         echo "Restoring project dependencies..."
       displayName: 'Restore dependencies'
+
+- stage: Test
+  displayName: 'Test Stage'
+  dependsOn: Build
+  isSkippable: false
+  jobs:
+  - job: TestJob
+    displayName: 'Test Job'
+    steps:
     - script: |
-        echo "Running unit tests..."
-      displayName: 'Run unit tests'
+        echo "Running unit tests"
+      displayName: "Run unit tests"  
